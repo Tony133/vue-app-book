@@ -33,9 +33,7 @@ Simple example Single page application with Laravel 5.7 and Vue js
 ```
     $ npm run dev
 ```
-
-##### Watch to update automatically while developing
-
+   or
 ```
     $ npm run watch
 ```
@@ -43,10 +41,9 @@ Simple example Single page application with Laravel 5.7 and Vue js
 ## Build js with Laravel Mix with Yarn
 
 ```
-    $ yarn dev
+   $ yarn dev
 ```
-
-##### Watch to update automatically while developing
+   or
 ```
    $ yarn watch
 ```
