@@ -32,9 +32,9 @@ Simple example Single page application with Laravel 5.7 and Vue js
 
 ```
     $ npm run dev
-```
-   or
-```
+
+    or
+
     $ npm run watch
 ```
 
@@ -42,8 +42,8 @@ Simple example Single page application with Laravel 5.7 and Vue js
 
 ```
    $ yarn dev
-```
+
    or
-```
+  
    $ yarn watch
 ```
