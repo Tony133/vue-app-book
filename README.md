@@ -8,6 +8,13 @@ Simple example Single page application with Laravel 5.7 and Vue js
     $ php composer.phar install or composer install
 ```
 
+## Install NPM dependencies and add vue-router
+
+```
+    $ yarn install
+    $ yarn add vue-router # or npm install vue-router
+
+```
 ## Configures database and start seed
 
 ```
@@ -19,4 +26,27 @@ Simple example Single page application with Laravel 5.7 and Vue js
 
 ```
    127.0.0.1:8000/book
+```
+
+## Build js with Laravel Mix with NPM
+
+```
+    $ npm run dev
+```
+
+##### Watch to update automatically while developing
+
+```
+    $ npm run watch
+```
+
+## Build js with Laravel Mix with Yarn
+
+```
+    $ yarn dev
+```
+
+##### Watch to update automatically while developing
+```
+   $ yarn watch
 ```
