@@ -1,4 +1,7 @@
 # LaravelVueBook
+
+[![Build Status](https://travis-ci.org/Tony133/LaravelVueBook.svg?branch=master)](https://travis-ci.org/Tony133/LaravelVueBook)
+
 Simple example Single page application with Laravel 5.7 and Vue js 
 
 ## Install with Composer
