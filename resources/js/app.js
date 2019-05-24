@@ -28,47 +28,16 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import Router from './router/router'
+import Vuelidate from 'vuelidate';
+import App from './components/AppComponent';
 
-Vue.use(VueRouter)
-
-import App from './views/App'
-import ListBook from './views/ListBook'
-import AddBook from './views/AddBook'
-import EditBook from './views/EditBook'
-import Home from './views/Home'
-
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/book/add',
-						name: 'book.add',
-            component: AddBook
-        },
-        {
-            path: '/',
-            name: 'home',
-            component: Home
-        },
-        {
-            path: '/book',
-            name: 'book.list',
-            component: ListBook,
-        },
-        {
-            path: '/edit/:id',
-						name: 'book.edit',
-            component: EditBook
-        }
-
-    ],
-});
+Vue.use(Vuelidate);
 
 const app = new Vue({
     el: '#app',
     components: { App },
-    router,
+    router: Router,
 });
 

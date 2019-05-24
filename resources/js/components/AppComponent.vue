@@ -28,7 +28,6 @@
   .nav-link.router-link-active {
     color: #fff;
   }
-
 </style>
 <script>
     export default {}

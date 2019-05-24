@@ -24,7 +24,7 @@
         "vue-template-compiler": "^2.5.22"
     },
     "dependencies": {
-        "vue-book": "^0.0.19",
-        "vue-router": "^3.0.2"
+        "vue-router": "^3.0.2",
+        "vuelidate": "^0.7.4"
     }
 }
