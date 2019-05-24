@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Tony133/LaravelVueBook.svg?branch=master)](https://travis-ci.org/Tony133/LaravelVueBook)
 
-Simple example single page application with Laravel 5.8 and Vue js 
+Simple example single page application with Laravel 5.8 and Vue js 2.x
 
 ## Install with Composer
 
