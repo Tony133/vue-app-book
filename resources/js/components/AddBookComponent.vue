@@ -7,6 +7,22 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    
+    <div v-if="validationErrors">
+      <div v-for="(value, key) in validationErrors" v-bind:key="key" class="alert alert-danger" role="alert">
+        {{ value }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+
+    <div v-if="success" class="alert alert-success alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <hr>
     <form v-on:submit.prevent="addBook">
       <div class="row">
@@ -42,7 +58,10 @@
         return {
           book:{},
           error: false,
-          submitted: false
+          submitted: false,
+          success: false,
+          message: '',
+          validationErrors: ''
         }
     },
     validations: {
@@ -56,8 +75,14 @@
         this.submitted = true;
         let uri = '/api/book';
         axios.post(uri, this.book).then((response) => {
-          this.$router.push({name: 'book.list'})
-        }).catch(error => {
+          this.message = response.data;
+          this.success = true; 
+          this.$router.push({name: 'book.list'});
+        }).catch(errors => {
+          if (errors.response.status == 422) {
+            this.validationErrors = Object.values(errors.response.data.errors).flat();
+          }
+
           this.$v.$touch();
           if (this.$v.$invalid) {
             return;

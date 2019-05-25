@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\BookStoreRequest;
+use App\Http\Requests\BookUpdateRequest;
 use App\Book;
 
 class BookController extends Controller
@@ -14,7 +15,7 @@ class BookController extends Controller
         return response()->json($books);
     }
 
-    public function store(Request $request)
+    public function store(BookStoreRequest $request)
     {
         $book = new Book([
           'name' => $request->get('name'),
@@ -22,7 +23,7 @@ class BookController extends Controller
         ]);
         $book->save();
 
-        return response()->json('Successfully added');
+        return response()->json('Successfully book added');
     }
 
     public function edit($id)
@@ -32,14 +33,14 @@ class BookController extends Controller
         return response()->json($book);
     }
 
-    public function update(Request $request, $id)
+    public function update(BookUpdateRequest $request, $id)
     {
         $book = Book::find($id);
         $book->name = $request->get('name');
         $book->price = $request->get('price');
         $book->save();
 
-        return response()->json('Successfully Updated');
+        return response()->json('Successfully book updated');
     }
 
     public function destroy($id)
@@ -47,6 +48,6 @@ class BookController extends Controller
         $book = Book::find($id);
         $book->delete();
 
-        return response()->json('Successfully Deleted');
+        return response()->json('Successfully book deleted');
     }
 }

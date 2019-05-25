@@ -1802,6 +1802,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1809,7 +1825,10 @@ __webpack_require__.r(__webpack_exports__);
     return {
       book: {},
       error: false,
-      submitted: false
+      submitted: false,
+      success: false,
+      message: '',
+      validationErrors: ''
     };
   },
   validations: {
@@ -1829,10 +1848,17 @@ __webpack_require__.r(__webpack_exports__);
       this.submitted = true;
       var uri = '/api/book';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(uri, this.book).then(function (response) {
+        _this.message = response.data;
+        _this.success = true;
+
         _this.$router.push({
           name: 'book.list'
         });
-      })["catch"](function (error) {
+      })["catch"](function (errors) {
+        if (errors.response.status == 422) {
+          _this.validationErrors = Object.values(errors.response.data.errors).flat();
+        }
+
         _this.$v.$touch();
 
         if (_this.$v.$invalid) {
@@ -1941,6 +1967,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1949,7 +1993,10 @@ __webpack_require__.r(__webpack_exports__);
       book: {},
       error: false,
       errorUpdate: false,
-      submitted: false
+      submitted: false,
+      success: false,
+      message: '',
+      validationErrors: ''
     };
   },
   validations: {
@@ -1982,10 +2029,17 @@ __webpack_require__.r(__webpack_exports__);
       this.submitted = true;
       var uri = '/api/book/' + this.$route.params.id;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch(uri, this.book).then(function (response) {
+        _this2.message = response.data;
+        _this2.success = true;
+
         _this2.$router.push({
           name: 'book.list'
         });
-      })["catch"](function (error) {
+      })["catch"](function (errors) {
+        if (errors.response.status == 422) {
+          _this2.validationErrors = Object.values(errors.response.data.errors).flat();
+        }
+
         _this2.$v.$touch();
 
         if (_this2.$v.$invalid) {
@@ -2113,6 +2167,9 @@ __webpack_require__.r(__webpack_exports__);
       var id = book.id;
       var uri = '/api/book/' + id + '/delete';
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"](uri).then(function (response) {
+        _this2.message = response.data;
+        console.log(response.data);
+
         _this2.books.shift(book);
 
         _this2.$router.push('/book');
@@ -38080,6 +38137,35 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
+    _vm.validationErrors
+      ? _c(
+          "div",
+          _vm._l(_vm.validationErrors, function(value, key) {
+            return _c(
+              "div",
+              {
+                key: key,
+                staticClass: "alert alert-danger",
+                attrs: { role: "alert" }
+              },
+              [_vm._v("\n      " + _vm._s(value) + "\n      "), _vm._m(1, true)]
+            )
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.success
+      ? _c(
+          "div",
+          {
+            staticClass: "alert alert-success alert-dismissible fade show",
+            attrs: { role: "alert" }
+          },
+          [_vm._v("\n    " + _vm._s(_vm.message) + "\n    "), _vm._m(2)]
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
     _c(
@@ -38172,12 +38258,46 @@ var render = function() {
         ]),
         _c("br"),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(3)
       ]
     )
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "alert",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "alert",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -38326,11 +38446,32 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h1", [_vm._v("Update Book")]),
     _vm._v(" "),
+    _vm.validationErrors
+      ? _c(
+          "div",
+          _vm._l(_vm.validationErrors, function(value, key) {
+            return _c(
+              "div",
+              {
+                key: key,
+                staticClass: "alert alert-danger",
+                attrs: { value: value, role: "alert" }
+              },
+              [
+                _vm._v("\n\t\t\t\t" + _vm._s(value) + "\n\t\t\t\t"),
+                _vm._m(0, true)
+              ]
+            )
+          }),
+          0
+        )
+      : _vm._e(),
+    _vm._v(" "),
     _vm.errorUpdate
       ? _c(
           "div",
           { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-          [_vm._v("\n\t\tError: Book not updated!\n\t\t"), _vm._m(0)]
+          [_vm._v("\n\t\t\tError: Book not updated!\n\t\t\t"), _vm._m(1)]
         )
       : _vm._e(),
     _vm._v(" "),
@@ -38338,7 +38479,18 @@ var render = function() {
       ? _c(
           "div",
           { staticClass: "alert alert-danger", attrs: { role: "alert" } },
-          [_vm._v("\n\t\tError: Book not found!\n\t\t"), _vm._m(1)]
+          [_vm._v("\n\t\t\tError: Book not found!\n\t\t\t"), _vm._m(2)]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.success
+      ? _c(
+          "div",
+          {
+            staticClass: "alert alert-success alert-dismissible fade show",
+            attrs: { role: "alert" }
+          },
+          [_vm._v("\n      " + _vm._s(_vm.message) + "\n      "), _vm._m(3)]
         )
       : _vm._e(),
     _vm._v(" "),
@@ -38439,12 +38591,46 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _vm._m(2)
+        _vm._m(4)
       ]
     )
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "alert",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "alert",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

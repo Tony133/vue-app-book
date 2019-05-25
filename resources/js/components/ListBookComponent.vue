@@ -65,6 +65,8 @@
             let id = book.id;
             let uri = '/api/book/' + id + '/delete';
             axios.delete(uri).then((response) => {
+              this.message = response.data;
+              console.log(response.data);
               this.books.shift(book);
               this.$router.push('/book');
             }).catch(error => {
