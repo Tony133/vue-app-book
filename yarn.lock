@@ -6337,11 +6337,6 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-book@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/vue-book/-/vue-book-0.0.19.tgz#22ece598d5d83ff2175996f399742e68e7b51b84"
-  integrity sha512-/QDritkeJQDjifUmhKgBzAK5cgu7v+/jLJ4TBzkUIWGtHXzaYSzYW4zd9/zhm+6e7eGFGY4U4Ch8b5sbAoLyCQ==
-
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
@@ -6388,6 +6383,11 @@ vue@^2.5.17:
   version "2.5.22"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.22.tgz#3bf88041af08b8539c37b268b70ca79245e9cc30"
   integrity sha512-pxY3ZHlXNJMFQbkjEgGVMaMMkSV1ONpz+4qB55kZuJzyJOhn6MSy/YZdzhdnumegNzVTL/Dn3Pp4UrVBYt1j/g==
+
+vuelidate@^0.7.4:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
+  integrity sha512-QHZWYOL325Zo+2K7VBNEJTZ496Kd8Z31p85aQJFldKudUUGBmgw4zu4ghl4CyqPwjRCmqZ9lDdx4FSdMnu4fGg==
 
 watchpack@^1.5.0:
   version "1.6.0"
