@@ -42,7 +42,7 @@
               <div v-if="submitted && !$v.book.price.required" class="invalid-feedback"> Price is required</div>
             </div>
           </div>
-        </div><br />
+        </div>
         <div class="form-group">
           <button class="btn btn-primary">Add Book</button>
         </div>
