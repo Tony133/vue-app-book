@@ -54,8 +54,7 @@
         },
         methods: {
           fetchBooks() {
-            let uri = '/api/book/list';
-            axios.get(uri).then((response) => {
+            axios.get('/api/book/list').then((response) => {
               this.books = response.data;
             }).catch(error => {
               this.errorBooks = false;
@@ -63,12 +62,9 @@
           },
           deleteBook(book) {
             let id = book.id;
-            let uri = '/api/book/' + id + '/delete';
-            axios.delete(uri).then((response) => {
+            axios.delete(`/api/book/${id}/delete`).then((response) => {
               this.message = response.data;
-              console.log(response.data);
-              this.books.shift(book);
-              this.$router.push('/book');
+              this.$router.go();
             }).catch(error => {
               this.error = true;
             });

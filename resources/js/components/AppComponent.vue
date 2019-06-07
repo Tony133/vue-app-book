@@ -20,7 +20,9 @@
           </nav>
         </div>
         <div class="container">
+          <div class="container-inner">
             <router-view></router-view>
+          </div>
         </div>
     </div>
 </template>

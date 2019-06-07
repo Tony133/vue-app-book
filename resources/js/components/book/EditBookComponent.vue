@@ -80,8 +80,7 @@
 		},
 		methods: {
 			getBook() {
-			  let uri = '/api/book/'+ this.$route.params.id +'/edit';
-				axios.get(uri).then((response) => {
+				axios.get(`/api/book/${this.$route.params.id}/edit`).then((response) => {
 					this.book = response.data;
 				}).catch(error => {
 					this.error = true;
@@ -89,8 +88,7 @@
 			},
 			updateBook() {
 				this.submitted = true;
-			  let uri = '/api/book/'+this.$route.params.id;
-				axios.patch(uri, this.book).then((response) => {
+				axios.patch(`/api/book/${this.$route.params.id}`, this.book).then((response) => {
 					this.message = response.data;
           this.success = true; 
 					this.$router.push({name: 'book.list'});

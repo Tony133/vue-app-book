@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import ListBookComponent from '../components/ListBookComponent';
-import AddBookComponent from '../components/AddBookComponent';
-import EditBookComponent from '../components/EditBookComponent';
-import HomeComponent from '../components/HomeComponent';
+import ListBookComponent from '../components/book/ListBookComponent';
+import AddBookComponent from '../components/book/AddBookComponent';
+import EditBookComponent from '../components/book/EditBookComponent';
+import HomeComponent from '../components/home/HomeComponent';
 
 Vue.use(VueRouter);
 

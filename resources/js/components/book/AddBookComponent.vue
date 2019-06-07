@@ -73,8 +73,7 @@
     methods: {
       addBook() {
         this.submitted = true;
-        let uri = '/api/book';
-        axios.post(uri, this.book).then((response) => {
+        axios.post('/api/book', this.book).then((response) => {
           this.message = response.data;
           this.success = true; 
           this.$router.push({name: 'book.list'});
