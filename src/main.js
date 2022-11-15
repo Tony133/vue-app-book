@@ -1,16 +1,15 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./routers";
-import Vuelidate from "vuelidate";
-import axios from "axios";
-import VueAxios from "vue-axios";
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-Vue.use(Vuelidate);
-Vue.use(VueAxios, axios);
-Vue.config.productionTip = false;
-axios.defaults.baseURL = process.env.VUE_APP_URL;
+import App from './App.vue';
+import { router } from './routers';
 
-new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+
+const app = createApp(App);
+
+app.use(createPinia());
+app.use(router);
+
+app.mount('#app');

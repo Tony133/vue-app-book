@@ -1,36 +1,15 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import ListBookComponent from "../components/book/ListBookComponent";
-import AddBookComponent from "../components/book/AddBookComponent";
-import EditBookComponent from "../components/book/EditBookComponent";
-import HomeComponent from "../components/home/HomeComponent";
+import { createRouter, createWebHistory } from 'vue-router';
+import { Home } from '../views/home';
+import booksRoutes from './books.routes';
 
-Vue.use(VueRouter);
+export const router = createRouter({
+    history: createWebHistory(import.meta.env.BASE_URL),
+    linkActiveClass: 'active',
+    routes: [
+        { path: '/', name: "home", component: Home },
+        { ...booksRoutes },
 
-const router = new VueRouter({
-  mode: "history",
-  routes: [
-    {
-      path: "/book/add",
-      name: "book.add",
-      component: AddBookComponent,
-    },
-    {
-      path: "/",
-      name: "home",
-      component: HomeComponent,
-    },
-    {
-      path: "/books",
-      name: "book.list",
-      component: ListBookComponent,
-    },
-    {
-      path: "/book/edit/:id",
-      name: "book.edit",
-      component: EditBookComponent,
-    },
-  ],
+        // catch all redirect to home page
+        { path: '/:pathMatch(.*)*', redirect: '/' }
+    ]
 });
-
-export default router;
