@@ -1,6 +1,6 @@
 # vue-app-book
 
-Simple example application with Vue js 3.x
+Simple example application with Vue 3.x
 
 ## Project setup
 
