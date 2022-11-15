@@ -57,11 +57,6 @@
 							<Field name="author" type="text" class="form-control" v-model="book[0].author" :class="{ 'is-invalid': errors.author }" />
 							<div class="invalid-feedback">{{ errors.author }}</div>
 						</div>
-						<!-- <div class="form-group">
-							<label>Categories</label>
-							<Field name="categories" type="text" class="form-control" v-model="book[0].categories" :class="{ 'is-invalid': errors.categories }" />
-							<div class="invalid-feedback">{{ errors.categories }}</div>
-						</div> -->
 						<div class="form-group box-space">
 							<button class="btn btn-primary" :disabled="isSubmitting">
 								<span v-show="isSubmitting" class="spinner-border spinner-border-sm mr-1"></span>
