@@ -16,7 +16,6 @@ const schema = Yup.object().shape({
 });
 
 async function onSubmit(values) {
-	console.log(values)
     const booksStore = useBooksStore();
     try {
         await booksStore.create(values);

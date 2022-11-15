@@ -1,5 +1,3 @@
-import { slotFlagsText } from '@vue/shared';
-import axios from 'axios';
 import { defineStore } from 'pinia';
 import { fetchWrapper } from '../helpers/fetch-wrapper';
 
